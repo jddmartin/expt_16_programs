@@ -6,7 +6,9 @@ import datetime
 import numpy as np
 import os.path
 
+##############################################################################
 # collect data using the NI USB-6008 DAQ
+##############################################################################
 num_samples = 1000
 sample_rate = 5e3
 with nidaqmx.Task() as task:
@@ -19,6 +21,9 @@ with nidaqmx.Task() as task:
     task.start()
     value = task.read(number_of_samples_per_channel=num_samples)
 
+##############################################################################
+# plot and save time-domain waveform
+##############################################################################
 import matplotlib
 
 matplotlib.use("TkAgg")
@@ -37,7 +42,9 @@ dt = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
 s = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 np.savetxt(s+"_time_domain.txt", np.c_[times,data])
 
-# do Fourier analysis:
+##############################################################################
+# perform, plot, and save Fourier analysis
+##############################################################################
 amps = np.sqrt(np.abs(np.fft.fft(data))**2)  # amplitudes
 
 time_step = 1.0 / sample_rate
