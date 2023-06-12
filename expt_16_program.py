@@ -18,8 +18,8 @@ def data_directory():
                       'Desktop')
     date = datetime.datetime.now().strftime("%Y%m%d")
 
-    data_directory = os.path.join(dt, date)
-    Path(data_directory).mkdir(exist_ok=True)
+    data_directory = os.path.join(dt, date + "_expt_16_data")
+    Path(data_directory).mkdir(exist_ok=True, parents=True)
     return data_directory
 
 ##############################################################################
