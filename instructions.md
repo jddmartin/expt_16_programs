@@ -4,7 +4,7 @@ Click on:
   expt_16_program.py
 on Desktop.
 
-Program should open up in Visual Studio Code.  
+Program should open up in Visual Studio Code (you may need to specify this).
 
 Allow untrusted files in this Window.
 
